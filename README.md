@@ -22,6 +22,4 @@ and tablets:
 Installation
 ----------------
 
-Put .htaccess and .htassets in your web root.
-
-You can put AdaptiveAutoIndex in a subdirectory, but know that jQuery Mobile will get confused if you traverse up the tree and then go back down into the root directory.
+Put .htaccess and .htassets in your web root, or the root of one of your virtualhosts.
