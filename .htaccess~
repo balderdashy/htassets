@@ -1,0 +1,21 @@
+# Display custom directory listing
+<IfModule mod_autoindex.c>
+            Options Indexes FollowSymLinks
+
+	    # Hide hidden files
+#	    IndexIgnore *.gif *.jpg
+            IndexOptions FancyIndexing
+            IndexOptions VersionSort
+            IndexOptions HTMLTable
+            IndexOptions FoldersFirst
+            IndexOptions IconsAreLinks
+            IndexOptions IgnoreCase
+            IndexOptions SuppressDescription
+            IndexOptions SuppressHTMLPreamble
+            IndexOptions XHTML
+            IndexOptions IconWidth=16
+            IndexOptions IconHeight=16
+            IndexOptions NameWidth=*
+            IndexOrderDefault Descending Name
+            IndexStyleSheet /.custom-dir-listing/style.css
+            HeaderName /.custom-dir-listing/header.html
