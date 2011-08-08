@@ -6,3 +6,11 @@ div table {
 	min-width: 320px;
 	margin: 0 auto;
 }
+
+/* Create a class for links that have been overridden by JS so they still look live */
+a.clickable {
+	cursor: pointer;
+}
+a.clickable:hover {
+	text-decoration: underline;
+}
