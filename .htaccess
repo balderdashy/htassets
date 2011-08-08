@@ -15,4 +15,4 @@
 	IndexOptions IconHeight=16
 	IndexOptions NameWidth=*
 	IndexOrderDefault Descending Name
-	HeaderName /adaptive_autoindex/.htassets/header.html
+	HeaderName /.htassets/header.html
