@@ -16,5 +16,5 @@
 	IndexOptions IconHeight=16
 	IndexOptions NameWidth=*
 	IndexOrderDefault Descending Name
-	HeaderName /htassets/.htassets/header.html
+	HeaderName /.htassets/header.html
 
