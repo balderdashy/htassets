@@ -20,10 +20,10 @@ part1='s/{{{root}}}/'
 part2='/g'
 sedCommand="${part1}$escaped_location"
 sedCommand="${sedCommand}$part2"
-sed "$sedCommand" .htaccess.template > ../.htaccess
+sed "$sedCommand" templates/.htaccess.template > ../.htaccess
 
 # Overwrite header.html
-sed "$sedCommand" header.template > header.html
+sed "$sedCommand" templates/header.template > header.html
 
 # Overwrite constants.js
-sed "$sedCommand" constants.template > constants.js
+sed "$sedCommand" templates/constants.template > constants.js
