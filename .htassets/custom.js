@@ -72,7 +72,7 @@
 				var parentLink = $(page).find("tr.parentDirectoryLink a").attr("href");
 				$(page).find("table").remove();
 				$(page).find("address").remove();
-				$(page).append("<img src='"+empty_image_location+"'/>");
+				$(page).append("<img width='150' height='150' src='"+empty_image_location+"'/>");
 				$(page).append("<p class='flash'>No files are available in this directory.</p>");
 				$(page).append("<a data-direction='reverse' id='parentEmptyLink' href='"+parentLink+"'>Parent Directory</a>");
 			}
