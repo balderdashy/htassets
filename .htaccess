@@ -1,4 +1,5 @@
 # Display custom directory listing
+
 <IfModule mod_autoindex.c>
 	Options Indexes FollowSymLinks
 
@@ -15,4 +16,5 @@
 	IndexOptions IconHeight=16
 	IndexOptions NameWidth=*
 	IndexOrderDefault Descending Name
-	HeaderName /.htassets/header.html
+	HeaderName /htassets/.htassets/header.html
+

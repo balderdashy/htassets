@@ -1,3 +1,7 @@
+div.ui-page {
+	text-align: center;
+}
+
 div h1 {
 	text-align: center;
 }
@@ -5,6 +9,12 @@ div h1 {
 div table {
 	min-width: 320px;
 	margin: 0 auto;
+	text-align: left;
+}
+
+/* Create a class for links that are not fetched by jQuery Mobile */
+a.external {
+	background: yellow;
 }
 
 /* Create a class for links that have been overridden by JS so they still look live */
@@ -33,4 +43,8 @@ p.flash {
 img {
 	display: block;
 	margin: 0 auto;
+}
+
+/* Go up a directory*/
+#parentEmptyLink {
 }
