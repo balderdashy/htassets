@@ -79,7 +79,7 @@ function _clickSort(e) {
 
 
 /**
-* This filter removes all directories, .html and .php files.
+* This filter removes all directories and empty strings.
 * It returns only files which jQuery Mobile wouldn't be able to load
 * with AJAX.
 *
@@ -87,8 +87,8 @@ function _clickSort(e) {
 * things like text files (.js, .py, .sh, .txt, etc.)
 */
 function incompatibleTypeFilter () {
-	return /^(?!.*(^\s*$|\.html$|\/$))/.test($(this).text());
-	//return /((\.html$)|(\.php$)|(\/$))/i.test($(this).text());
+	return /^(?!.*(^\s*$|\/$))/.test($(this).text());
+//	return /^(?!.*(^\s*$|\.html$|\/$))/.test($(this).text());
 }
 
 

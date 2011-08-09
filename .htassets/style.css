@@ -15,6 +15,12 @@ a.clickable:hover {
 	text-decoration: underline;
 }
 
+/* Server info message */
+address {
+	text-align: center;
+	margin-top: 1em;
+}
+
 
 /* Flash message */
 p.flash {
