@@ -1,0 +1,20 @@
+# Display custom directory listing
+
+<IfModule mod_autoindex.c>
+	Options Indexes FollowSymLinks
+
+	IndexOptions FancyIndexing
+	IndexOptions VersionSort
+	IndexOptions HTMLTable
+	IndexOptions FoldersFirst
+	IndexOptions IconsAreLinks
+	IndexOptions IgnoreCase
+	IndexOptions SuppressDescription
+	IndexOptions SuppressHTMLPreamble
+	IndexOptions XHTML
+	IndexOptions IconWidth=16
+	IndexOptions IconHeight=16
+	IndexOptions NameWidth=*
+	IndexOrderDefault Descending Name
+	HeaderName {{{root}}}.htassets/header.html
+

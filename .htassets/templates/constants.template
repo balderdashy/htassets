@@ -1,0 +1,2 @@
+htasset_location = '{{{root}}}';
+empty_image_location = '{{{root}}}.htassets/images/empty.png';
