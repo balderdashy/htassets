@@ -4,13 +4,21 @@
 	$("div[data-role='page']").live('pagecreate',onInitialize);
 
 
-
-
 /**
  * Called every time a page is loaded
  */
-function onInitialize() {
+function onInitialize(e) {
+	// Get page element
+	var page = e.currentTarget;
+	parseApacheTable(page);
+}
 
+
+/**
+ * Parse the table that apache provides, and then augment it
+ * with improved aesthetics and logic
+ */
+function parseApacheTable(page) {
 	// Override server-side sorting behavior
 	$("th a").attr('href',null).addClass('clickable').bind('vclick',_clickSort);
 
@@ -22,7 +30,16 @@ function onInitialize() {
 	// Make types that are incompatible with jQuery Mobile's ajax loading
 	// open as a standard web page
 	$("td a").filter(incompatibleTypeFilter).attr('data-ajax','false');
+
+	// If the directory is empty, display a message informing the user
+	// that this is the case
+	if ($("td").length == 0) {
+		$("table").remove();
+		$(page).append("<img src='/.htassets/images/empty.png'/>");
+		$(page).append("<p class='flash'>No files are available in this directory.</p>");
+	}
 }
+
 
 
 /**

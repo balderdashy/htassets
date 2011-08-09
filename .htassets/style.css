@@ -14,3 +14,17 @@ a.clickable {
 a.clickable:hover {
 	text-decoration: underline;
 }
+
+
+/* Flash message */
+p.flash {
+	margin-left: auto;
+	margin-right: auto;
+	width: 320px;
+	font-size: 1.3em;
+	text-align: center;
+}
+img {
+	display: block;
+	margin: 0 auto;
+}
