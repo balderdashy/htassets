@@ -1,0 +1,19 @@
+<!DOCTYPE html> 
+<html>
+<head>
+  <title>.htassets</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link type="text/css" rel="stylesheet" href="{{{root}}}.htassets/style.css"/>
+
+	<link type="text/css" rel="stylesheet" href="{{{root}}}.htassets/jquery.mobile-1.0b2.min.css" />
+	<script type="text/javascript" src="{{{root}}}.htassets/jquery-1.6.2.min.js"></script>
+	<script type="text/javascript" src="{{{root}}}.htassets/jquery.mobile-1.0b2.min.js"></script>
+	<script type="text/javascript" src="{{{root}}}.htassets/jquery.fn.sort.js"></script>
+
+	<script type="text/javascript" src="{{{root}}}.htassets/constants.js"></script>
+	<script type="text/javascript" src="{{{root}}}.htassets/custom.js"></script>
+</head>
+<body>
+	<h1 id="currentDir">.htassets</h1>
