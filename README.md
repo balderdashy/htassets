@@ -1,4 +1,4 @@
-AdaptiveAutoIndex
+.htassets
 ===================
 
 A makeover for your Apache directory listing.
