@@ -2,7 +2,7 @@
 # (if you put .htassets in your web root, leave this as '/')
 
 # YOU MUST INCLUDE TRAILING SLASH!!!
-htasset_location='/'
+htasset_location='/htassets/'
 
 
 ###############################################################

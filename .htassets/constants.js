@@ -1,2 +1,2 @@
-htasset_location = '/';
-empty_image_location = '/.htassets/images/empty.png';
+htasset_location = '/htassets/';
+empty_image_location = '/htassets/.htassets/images/empty.png';

@@ -1,3 +1,4 @@
+
 div.ui-page {
 	text-align: center;
 }
@@ -47,4 +48,23 @@ img {
 
 /* Go up a directory*/
 #parentEmptyLink {
+}
+
+
+
+/* Adaptive styles */
+@media all and (min-width: 650px){
+
+/*	.ui-page table {
+		display: block;
+		float: right;
+		width: 50%%;
+	}
+	.ui-page table tbody, .ui-page table tr {
+		display: block;
+		width: 100%;
+	}
+	.ui-page table td, .ui-page table th {
+		width: 20%;
+	}*/
 }

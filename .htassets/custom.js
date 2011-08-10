@@ -1,12 +1,19 @@
 (function($) {
 	$(function(){
-		
+
+		onReady();
+
 		// Execute initalization logic any time any new page is being created
 		$("div[data-role='page']").live('pagecreate',onInitialize);
 
 		// Execute page change logic any time a page is displayed
-		$("div[data-role='page']").live('pageshow',onDisplay);
+		$("div[data-role='page']").live('pagebeforeshow',onDisplay);
+//		$("div[data-role='page']").live('pageshow',onDisplay);
 
+		/**
+		 * Execute ready logic the first time the app opens
+		 */
+		function onReady() {}
 
 		/**
 		 * Called every time a page is loaded
@@ -15,12 +22,22 @@
 			// Get page element
 			var page = e.currentTarget;
 			parseApacheTable(page);
+
+			// Refresh hostname
+			$(".hostname").html(window.location.hostname);
+		}
+
+		function onBeforeDisplay(e) {
+			
 		}
 
 		/**
 		 * Called every time a page is displayed
 		 */
 		function onDisplay(e) {
+			var page = e.currentTarget;
+//			page = $($.mobile.activePage);
+
 			// Display current directory
 			if (window.location.hash) {
 				path = window.location.hash;
@@ -31,7 +48,7 @@
 			// Make sure there's a trailing slash
 			if (path.charAt(path.length-1) != '/')
 				path = path+'/';
-			$($.mobile.activePage).find("#currentDir").text(path);
+			$(page).find("#currentDir").text(path);
 
 			// If this is the htassets root, make the parent dir link
 			// rel=external to avoid craziness
@@ -85,9 +102,10 @@
 		 * User clicks sort
 		 */
 		function _clickSort(e) {
-
+			var page = page = $($.mobile.activePage);
+			
 			var sortLink = $(this);
-			var elementsToSort = $('table td').parent();
+			var elementsToSort = $(page).find('table td').parent().not('.parentDirectoryLink');
 			console.log(elementsToSort.length + " rows exist!!!");
 			// Note: We would have to adjust column index because of the icon in each row
 			// but $.eq is 0 based and $.index is 1 based, so it works out.
@@ -96,17 +114,21 @@
 			// Toggle sort order
 			sortLink.data('ascending',!sortLink.data('ascending'));
 
-			elementsToSort.sortElements(function(a,b) {
-				var aVal =  $(a).find('td:eq('+columnIndex+')').text(),
-				bVal = $(b).find('td:eq('+columnIndex+')').text();
-				if (aVal == bVal) {
-					return 0;
-				} else if (sortLink.data('ascending')) {
-					return aVal > bVal ? 1 : -1;
-				} else {
-					return aVal < bVal ? 1 : -1;
-				}
+			elementsToSort.fadeOut(5,function() {
+				elementsToSort.sortElements(function(a,b) {
+					var aVal =  $(a).find('td:eq('+columnIndex+')').text(),
+					bVal = $(b).find('td:eq('+columnIndex+')').text();
+					if (aVal == bVal) {
+						return 0;
+					} else if (sortLink.data('ascending')) {
+						return aVal > bVal ? 1 : -1;
+					} else {
+						return aVal < bVal ? 1 : -1;
+					}
+				});
+				elementsToSort.fadeIn(300);
 			});
+			
 
 			e.stopPropagation();
 			e.preventDefault();
