@@ -9,6 +9,9 @@
 		// Execute page change logic any time a page is displayed
 		$("div[data-role='page']").live('pagebeforeshow',onDisplay);
 
+		// Check on some stuff before creating a page
+		$("div[data-role='page']").live('pagebeforecreate',onBeforeCreate);
+
 		/**
 		 * Execute ready logic the first time the app opens
 		 */
@@ -26,13 +29,23 @@
 			$(".hostname").html(window.location.hostname);
 		}
 
+		function onBeforeCreate(e) {
+			var oldPath = getPath(e.currentTarget);
+			var path = e.target.baseURI;
+			console.log(oldPath);
+			// peek ahead inside directories and check that they are directory listings
+			if(e.target.id != 'htassets') {
+				window.open(path,"htassets","menubar=1,location=1,resizable=1,scrollbars=1,status=1");
+//				window.location = path;
+				$.mobile.changePage(oldPath,{transition:'none'});
+				return false;
+			}
+			
+		}
 
-		/**
-		 * Called every time a page is displayed
-		 */
-		function onDisplay(e) {
-			var page = e.currentTarget;
 
+		function getPath(page) {
+			var path;
 			// Display current directory
 			if (window.location.hash) {
 				path = window.location.hash;
@@ -44,17 +57,21 @@
 			if (path.charAt(path.length-1) != '/')
 				path = path+'/';
 			$(page).find("#currentDir").text(path);
+			return path;
+		}
+
+		/**
+		 * Called every time a page is displayed
+		 */
+		function onDisplay(e) {
+			var path = getPath(e.currentTarget);
 
 			// If this is the htassets root, make the parent dir link
 			// rel=external to avoid craziness
 			if (path == htasset_location)
 				$("a:contains('Parent Directory')").attr('rel','external');
 
-			// peek ahead inside directories and check that they are directory listings
-			if(e.target.id != 'htassets')
-				window.location = path;
-
-
+			
 			// Mark all rel=external and no-ajax links so they are apparent
 			$("a[rel=external]").add("a[data-ajax=false]").addClass('external');
 			
