@@ -8,7 +8,6 @@
 
 		// Execute page change logic any time a page is displayed
 		$("div[data-role='page']").live('pagebeforeshow',onDisplay);
-//		$("div[data-role='page']").live('pageshow',onDisplay);
 
 		/**
 		 * Execute ready logic the first time the app opens
@@ -27,16 +26,12 @@
 			$(".hostname").html(window.location.hostname);
 		}
 
-		function onBeforeDisplay(e) {
-			
-		}
 
 		/**
 		 * Called every time a page is displayed
 		 */
 		function onDisplay(e) {
 			var page = e.currentTarget;
-//			page = $($.mobile.activePage);
 
 			// Display current directory
 			if (window.location.hash) {
@@ -55,8 +50,10 @@
 			if (path == htasset_location)
 				$("a:contains('Parent Directory')").attr('rel','external');
 
-			// TODO: peek ahead inside directories and check that they are safe
-			// to open with jquery mobile (no index files)
+			// peek ahead inside directories and check that they are directory listings
+			if(e.target.id != 'htassets')
+				window.location = path;
+
 
 			// Mark all rel=external and no-ajax links so they are apparent
 			$("a[rel=external]").add("a[data-ajax=false]").addClass('external');

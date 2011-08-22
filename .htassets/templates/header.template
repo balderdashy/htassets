@@ -1,5 +1,5 @@
 <!DOCTYPE html> 
-<html>
+<html id='htassets'>
 <head>
   <title>.htassets</title>
   <meta charset="utf-8" />
@@ -16,4 +16,8 @@
 	<script type="text/javascript" src="{{{root}}}.htassets/custom.js"></script>
 </head>
 <body>
+	<div id="htassets" data-role="page">
+	<div data-role="header">
+		<h1 class="hostname">htassets.org</h1>
+	</div>
 	<h1 id="currentDir">.htassets</h1>
